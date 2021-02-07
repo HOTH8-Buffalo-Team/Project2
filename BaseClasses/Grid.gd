@@ -33,7 +33,7 @@ func attempt_trigger(pawn, direction):
 			var target_pawn = get_cell_pawn(cell_target, cell_tile_id)
 			if (not target_pawn.has_node("EventHandler")):
 				return
-			target_pawn.get_node("EventHandler").onTrigger()
+			target_pawn.get_node("EventHandler").onTrigger(pawn)
 			return
 
 ##Request to move. Move requests will be made inside of the player script.

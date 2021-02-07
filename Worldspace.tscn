@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://BaseClasses/Grid.gd" type="Script" id=1]
 [ext_resource path="res://Classes/OBJECT_PERMEABLE.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://BaseClasses/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://EventHandler.gd" type="Script" id=7]
 [ext_resource path="res://Sprites/Objects/Strawberry.png" type="Texture" id=8]
+[ext_resource path="res://Elephant.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/Animals/CubicElephant.png" type="Texture" id=10]
 
 [node name="Worldspace" type="Node2D"]
 
@@ -51,3 +53,12 @@ texture = ExtResource( 8 )
 
 [node name="Player" parent="Grid" instance=ExtResource( 6 )]
 position = Vector2( 114.107, 141.226 )
+
+[node name="Elephant" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="CubicElephant" type="Sprite" parent="Elephant"]
+position = Vector2( 102.013, 229.423 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+hframes = 4
