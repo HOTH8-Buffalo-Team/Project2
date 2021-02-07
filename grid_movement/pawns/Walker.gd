@@ -32,7 +32,11 @@ func get_input_direction():
 
 
 func update_look_direction(direction):
-	$Pivot/Sprite.rotation = direction.angle()
+	if direction == Vector2(1,0):
+		$Pivot/Sprite.flip_h = true
+	
+	if direction == Vector2(-1,0):
+		$Pivot/Sprite.flip_h = false
 
 
 func move_to(target_position):

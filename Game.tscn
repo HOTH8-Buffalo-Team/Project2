@@ -30,10 +30,11 @@ anims/fade = SubResource( 1 )
 [node name="Transition" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
-color = Color( 0.0703125, 0.0703125, 0.0703125, 0 )
+color = Color( 0.0703125, 0.0703125, 0.0703125, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,6 +43,7 @@ __meta__ = {
 visible = false
 
 [node name="Exploration" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1.85406, 0.794617 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 640, 360 )
