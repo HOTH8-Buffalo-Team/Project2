@@ -52,7 +52,6 @@ __meta__ = {
 }
 
 [node name="StartScreen" parent="." instance=ExtResource( 2 )]
-z_index = 1
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
