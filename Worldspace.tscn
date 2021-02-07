@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://BaseClasses/Grid.gd" type="Script" id=1]
 [ext_resource path="res://Classes/OBJECT_PERMEABLE.gd" type="Script" id=2]
@@ -8,8 +8,10 @@
 [ext_resource path="res://BaseClasses/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://EventHandler.gd" type="Script" id=7]
 [ext_resource path="res://Sprites/Objects/Strawberry.png" type="Texture" id=8]
+[ext_resource path="res://BaseClasses/Worldspace.gd" type="Script" id=9]
 
 [node name="Worldspace" type="Node2D"]
+script = ExtResource( 9 )
 
 [node name="Floor" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )

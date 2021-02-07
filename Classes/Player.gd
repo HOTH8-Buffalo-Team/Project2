@@ -1,6 +1,8 @@
 extends "res://BaseClasses/Pawn.gd"
 
 onready var Grid = get_parent()
+onready var Workspace = Grid.get_parent()
+
 var held:PoolStringArray = []
 var maxHeld = 3
 var direction = Vector2.DOWN
@@ -12,8 +14,11 @@ var direction = Vector2.DOWN
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	face_direction(Vector2.DOWN)
+	if Workspace.isRunning() != true:
+		set_active(false)
+		
+		
 	
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -93,7 +98,7 @@ func addItem(name:String):
 	held.append(name)
 
 # Remove an item from the character's inventory
-func removeItem():
+func removeItem(pos:int):
 	if held.size() <= 0:
 		return
 	
