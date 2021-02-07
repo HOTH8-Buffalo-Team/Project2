@@ -10,6 +10,7 @@ enum CellType { PLAYER, OBSTACLE, OBJECT_SOLID, OBJECT_PERMEABLE }
 func _ready():
 	for child in get_children():
 		set_cellv(world_to_map(child.position), child.type)
+		
 
 
 func get_cell_pawn(cell, type = CellType.OBJECT_SOLID):
@@ -32,10 +33,8 @@ func attempt_trigger(pawn, direction):
 			var target_pawn = get_cell_pawn(cell_target, cell_tile_id)
 			if (not target_pawn.has_node("EventHandler")):
 				return
-			
-			if (target_pawn.get_node("EventHandler").onTrigger):
-				target_pawn.get_node("EventHandler").onTrigger()
-				return
+			target_pawn.get_node("EventHandler").onTrigger()
+			return
 
 ##Request to move. Move requests will be made inside of the player script.
 func request_move(pawn, direction):
@@ -45,7 +44,7 @@ func request_move(pawn, direction):
 	var cell_tile_id = get_cellv(cell_target)
 	match cell_tile_id:
 		-1:
-			set_cellv(cell_target, CellType.ACTOR)
+			set_cellv(cell_target, CellType.PLAYER)
 			set_cellv(cell_start, -1)
 			return map_to_world(cell_target) + cell_size / 2
 		##SOLID OBJECT COLLISION
@@ -68,10 +67,10 @@ func request_move(pawn, direction):
 				return 
 			## If there is a node named eventhandler inside of whatever it has collided with, trigger the function
 			## named "onCollide()" inside that event handler
-			if target_pawn.get_node("EventHandler").onCollide:
-				target_pawn.get_node("EventHandler").onCollide();
+			target_pawn.get_node("EventHandler").onCollide();
 			## Overwrite the cell and move over it
-			set_cellv(cell_target, CellType.ACTOR)
+			self.remove_child(target_pawn)
+			set_cellv(cell_target, CellType.PLAYER)
 			set_cellv(cell_start, -1)
 			return map_to_world(cell_target) + cell_size / 2
 				

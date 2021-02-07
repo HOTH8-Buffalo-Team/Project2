@@ -1,18 +1,13 @@
-extends "res://Pawn.gd"
+extends "res://BaseClasses/Pawn.gd"
 
 class_name SolidObject
 
 
 
 func _ready():
-	pass # Replace with function body.
+	set_type(CellType.OBJECT_SOLID)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func onTrigger():
-	pass
-	
-func onCollide():
-	pass

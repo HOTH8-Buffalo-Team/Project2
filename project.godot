@@ -10,18 +10,24 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "PermeableObject",
+"language": "GDScript",
+"path": "res://Classes/OBJECT_PERMEABLE.gd"
+}, {
+"base": "Node2D",
 "class": "SolidObject",
 "language": "GDScript",
-"path": "res://OBJECT_SOLID.gd"
+"path": "res://Classes/OBJECT_SOLID.gd"
 } ]
 _global_script_class_icons={
+"PermeableObject": "",
 "SolidObject": ""
 }
 
 [application]
 
 config/name="HOTH8-PROJECT-REDONE"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://BaseClasses/Game.tscn"
 config/icon="res://icon.png"
 
 [input]
@@ -66,4 +72,5 @@ ui_down={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
