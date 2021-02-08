@@ -25,7 +25,7 @@ func _ready():
 	rng.randomize()
 	for child in get_children():
 		set_cellv(world_to_map(child.position), child.type)
-	for i in range(rng.randi_range(3,9)):
+	for i in range(rng.randi_range(3,3)):
 		var randx = rng.randi_range(0,width)
 		var randy = rng.randi_range(0,height)
 		#berry
