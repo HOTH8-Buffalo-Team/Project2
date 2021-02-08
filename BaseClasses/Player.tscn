@@ -1,7 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Classes/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/Bob_16x16.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Animals/CubicBat.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Animals/CubicBunny.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Animals/CubicFrog.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=9]
 resource_name = "Bump"
@@ -152,7 +155,6 @@ tracks/0/keys = {
 }
 
 [node name="Player" type="Node2D"]
-position = Vector2( 16, 16 )
 script = ExtResource( 1 )
 type = 0
 
@@ -178,3 +180,24 @@ offset = Vector2( 0, -8 )
 vframes = 7
 hframes = 24
 frame = 45
+
+[node name="Animal1" type="Sprite" parent="Pivot/Sprite"]
+visible = false
+position = Vector2( 0, -16 )
+texture = ExtResource( 3 )
+hframes = 4
+frame = 3
+
+[node name="Animal2" type="Sprite" parent="Pivot/Sprite"]
+visible = false
+position = Vector2( 0, -20 )
+texture = ExtResource( 5 )
+hframes = 4
+frame = 3
+
+[node name="Animal3" type="Sprite" parent="Pivot/Sprite"]
+visible = false
+position = Vector2( 0, -24 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 3

@@ -93,21 +93,54 @@ func bump():
 # Add an item to the character's inventory
 func addItem(name:String):
 	if held.size() >= maxHeld:
-		return
+		return false
 	
 	held.append(name)
+	
+	if held.size() == 1:
+		if name == "res://Sprites/Objects/Strawberry.png":
+			$Pivot/Sprite/Animal1.hframes = 1
+			$Pivot/Sprite/Animal1.frame_coords = Vector2()
+		else :
+			$Pivot/Sprite/Animal1.hframes = 4
+			$Pivot/Sprite/Animal1.frame = 3
+		$Pivot/Sprite/Animal1.visible = true
+		$Pivot/Sprite/Animal1.texture = load(held[0])
+	if held.size() == 2:
+		if name == "res://Sprites/Objects/Strawberry.png":
+			$Pivot/Sprite/Animal2.hframes = 1
+			$Pivot/Sprite/Animal2.frame_coords = Vector2()
+		else :
+			$Pivot/Sprite/Animal2.hframes = 4
+			$Pivot/Sprite/Animal2.frame = 3
+		$Pivot/Sprite/Animal2.visible = true
+		$Pivot/Sprite/Animal2.texture = load(held[1])
+	if held.size() == 3:
+		if name == "res://Sprites/Objects/Strawberry.png":
+			$Pivot/Sprite/Animal3.hframes = 1
+			$Pivot/Sprite/Animal3.frame_coords = Vector2()
+		else :
+			$Pivot/Sprite/Animal3.hframes = 4
+			$Pivot/Sprite/Animal3.frame = 3
+		$Pivot/Sprite/Animal3.visible = true
+		$Pivot/Sprite/Animal3.texture = load(held[2])
+	return true
 
 # Remove an item from the character's inventory
-func removeItem(pos:int):
-	if held.size() <= 0:
-		return
-	
+func removeItem():
+	if held.size() == 0:
+		return false
+	if held.size() == 1:
+		$Pivot/Sprite/Animal1.visible = false
+	if held.size() == 2:
+		$Pivot/Sprite/Animal2.visible = false
+	if held.size() == 3:
+		$Pivot/Sprite/Animal3.visible = false
 	held.remove(held.size()-1)
-	return
+	return true
 
 # Get item at position pos in character's inventory
-func getItem(pos:int):
-	if pos >= held.size():
+func getItem():
+	if held.size()<=0:
 		return
-	
-	return held[pos]
+	return held[held.size()-1]

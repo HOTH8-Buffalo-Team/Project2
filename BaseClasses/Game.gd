@@ -5,8 +5,8 @@ var gameState = "StartScreen"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimationPlayer.play("FadeIn")
-	changeGameState("StartScreen")
+	#$AnimationPlayer.play("FadeIn")
+	changeGameState("StartScreenNoFade")
 	
 
 func changeGameState(state):
@@ -20,7 +20,7 @@ func changeGameState(state):
 		$Worldspace.start()
 		$AnimationPlayer.play("FadeIn")
 		yield($AnimationPlayer, "animation_finished")
-	if gameState == "startScreen":
+	if gameState == "StartScreen":
 		$Worldspace.stop()
 		$AnimationPlayer.play("FadeOut")
 		yield($AnimationPlayer, "animation_finished")
@@ -29,6 +29,14 @@ func changeGameState(state):
 		$StartScreen.start()
 		$AnimationPlayer.play("FadeIn")
 		yield($AnimationPlayer, "animation_finished")
+	if gameState == "StartScreenNoFade":
+		$Worldspace.stop()
+		$StartScreen.visible = true
+		$Worldspace.visible = false
+		$StartScreen.start()
+		$AnimationPlayer.play("FadeIn")
+		yield($AnimationPlayer, "animation_finished")
+		gameState = "StartScreen"
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
