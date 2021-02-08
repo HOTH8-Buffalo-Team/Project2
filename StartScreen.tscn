@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Tiles/StartScreenTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Fonts/DefaultFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/TitleFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Sprites/Objects/Strawberry.png" type="Texture" id=3]
 [ext_resource path="res://CPUParticles2D.gd" type="Script" id=4]
+[ext_resource path="res://Fonts/DefaultFont2.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Music/TitleScreen.ogg" type="AudioStream" id=6]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.617143, 0.982857 )
@@ -28,20 +30,28 @@ margin_bottom = 300.0
 custom_fonts/normal_font = ExtResource( 2 )
 tab_size = 3
 text = "
-	
-	This is some Text"
+    Mammal
+     Mayhem"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Select1" type="ColorRect" parent="."]
 margin_left = 256.0
-margin_top = 300.0
+margin_top = 298.586
 margin_right = 768.0
-margin_bottom = 350.0
+margin_bottom = 348.586
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Select1"]
+margin_right = 512.0
+margin_bottom = 50.0
+custom_fonts/normal_font = ExtResource( 5 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "
+				  Start Game"
 
 [node name="Select2" type="ColorRect" parent="."]
 margin_left = 256.0
@@ -50,6 +60,17 @@ margin_right = 768.0
 margin_bottom = 450.0
 size_flags_horizontal = 3
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Select2"]
+margin_right = 512.0
+margin_bottom = 50.0
+custom_fonts/normal_font = ExtResource( 5 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "
+				    Credits"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -66,3 +87,6 @@ initial_velocity_random = 1.0
 angle_random = 1.0
 color_ramp = SubResource( 1 )
 script = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

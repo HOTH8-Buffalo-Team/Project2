@@ -33,7 +33,7 @@ func selectCurrentItem():
 	if selected == 0:
 		Game.changeGameState("Play")
 	if selected == 1:
-		return
+		Game.changeGameState("Credits")
 		
 
 func _process(delta):

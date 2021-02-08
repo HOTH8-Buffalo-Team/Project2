@@ -25,7 +25,7 @@ func _ready():
 	rng.randomize()
 	for child in get_children():
 		set_cellv(world_to_map(child.position), child.type)
-	for i in range(rng.randi_range(1,1)):
+	for i in range(rng.randi_range(3,9)):
 		var randx = rng.randi_range(0,width)
 		var randy = rng.randi_range(0,height)
 		#berry
@@ -35,6 +35,9 @@ func _ready():
 		var newBerry = strawberry.instance(2)
 		self.add_child(newBerry)
 		newBerry.position = map_to_world(Vector2(randx,randy)) + cell_size / 2
+		set_cellv(world_to_map(newBerry.position), newBerry.type)
+		
+		#animal
 		randx = rng.randi_range(0,width)
 		randy = rng.randi_range(0,height)
 		while get_cellv(Vector2(randx,randy)) != -1:
@@ -44,7 +47,7 @@ func _ready():
 		self.add_child(newAnimal)
 		newAnimal.position = map_to_world(Vector2(randx,randy)) + cell_size / 2
 		animals += 1
-		print("Animal at position ",randx, ":", randy)
+		set_cellv(world_to_map(newAnimal.position), newBerry.type)
 	for child in get_children():
 		set_cellv(world_to_map(child.position), child.type)
 		

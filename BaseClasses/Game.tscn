@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Worldspace.tscn" type="PackedScene" id=1]
 [ext_resource path="res://StartScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://BaseClasses/Game.gd" type="Script" id=3]
 [ext_resource path="res://StartScreen.gd" type="Script" id=4]
+[ext_resource path="res://CreditsScreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://CreditsScreen.gd" type="Script" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
@@ -46,7 +48,7 @@ layer = 3
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 margin_right = 1024.0
 margin_bottom = 600.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0.133333 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -57,3 +59,7 @@ script = ExtResource( 4 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/FadeIn = SubResource( 1 )
 anims/FadeOut = SubResource( 2 )
+
+[node name="CreditsScreen" parent="." instance=ExtResource( 5 )]
+visible = false
+script = ExtResource( 6 )
