@@ -13,6 +13,7 @@ func _ready():
 func onTrigger(pawn):
 	if pawn.addItem("res://Sprites/Objects/Strawberry.png"):
 		doConsume = true
+		$AudioStreamPlayer.play()
 	
 func consume():
 	return doConsume

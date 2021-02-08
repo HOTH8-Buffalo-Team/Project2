@@ -23,6 +23,7 @@ func getAnimalName():
 
 func bump():
 	$AnimationPlayer.play("Bump")
+	$AudioStreamPlayer.play()
 	return
 
 func _process(delta):
